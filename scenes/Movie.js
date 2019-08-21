@@ -58,7 +58,9 @@ export default function Movie(props) {
         const {title, release_date, poster_path} = item;
         let image = IMAGE_URL + poster_path;
 
-        return <PanelItem title={title} subtext={moment(release_date).format('MMM YYYY')} image={image}/>
+        let onPress = () => navigation.push("Movie", {title, movie:item});
+
+        return <PanelItem title={title} subtext={moment(release_date).format('MMM YYYY')} image={image} onPress={onPress}/>
     };
 
     const renderVideoItem = ({item, index}) => {
@@ -75,6 +77,7 @@ export default function Movie(props) {
         }
     };
 
+
     const renderBottomSection = () => {
         if (isFetching) return <Loading/>;
         else if (error !== null) return <EmptyError message={error} onPress={getData}/>;
@@ -83,8 +86,8 @@ export default function Movie(props) {
                 <View style={{}}>
                     {movie.cast && <Panel title={"The Cast"} data={movie.cast} renderItem={renderCastItem}/>}
                     {movie.crew && <Panel title={"The Crew"} data={movie.crew} renderItem={renderCrewItem}/>}
-                    {movie.videos && <Panel title={"Videos"} data={movie.videos} renderItem={renderVideoItem}/>}
-                    {movie.similar && <Panel title={"Similar Movies"} data={movie.similar} renderItem={renderSimilarItem}/>}
+                    {movie.videos.length > 0 && <Panel title={"Videos"} data={movie.videos} renderItem={renderVideoItem}/>}
+                    {movie.similar.length > 0 && <Panel title={"Similar Movies"} data={movie.similar} renderItem={renderSimilarItem}/>}
                 </View>
             );
     };

@@ -1,12 +1,7 @@
 export const NAME = 'movies';
 
 //Redux Action Types
-export const DATA_AVAILABLE = 'movies/DATA_AVAILABLE';
-export const POPULAR_AVAILABLE = 'movies/TRENDING_AVAILABLE';
-export const TOP_RATED_AVAILABLE = 'movies/TOP_RATED_AVAILABLE';
-export const NOW_PLAYING_AVAILABLE = 'movies/NOW_PLAYING_AVAILABLE';
-export const UPCOMING_AVAILABLE = 'movies/UPCOMING_AVAILABLE';
-export const MEDIA_AVAILABLE = 'movies/MEDIA_AVAILABLE';
+export const DATA_AVAILABLE = `${NAME}/DATA_AVAILABLE`;
 
 //API URL
 export const API_KEY = '?api_key=a3e3a1d79235a1ef189dbb0c243f240e';
@@ -25,36 +20,6 @@ export const SEARCH = `${API_URL}/search/movie${API_KEY}`;
 export const MOVIE_DETAILS = `${API_URL}/movie/`;
 export const CREDITS = `/credits${API_KEY}${API_PARAMS}`;
 export const SIMILAR = `/similar${API_KEY}${API_PARAMS}`;
-export const VIDEOS = `/videos${API_KEY}${API_PARAMS}`;
-
-
-//APP SECTIONS
-export const SECTIONS = {
-    popular: {
-        title: "Trending",
-        key: "trending",
-        url: POPULAR,
-        type: POPULAR_AVAILABLE
-    },
-    top_rated: {
-        title: "Top Rated",
-        key: "top_rated",
-        url: TOP_RATED,
-        type: TOP_RATED_AVAILABLE
-    },
-    now_playing: {
-        title: "Now Playing",
-        key: "now_playing",
-        url: NOW_PLAYING,
-        type: NOW_PLAYING_AVAILABLE
-    },
-    upcoming: {
-        title: "Upcoming",
-        key: "upcoming",
-        url: UPCOMING,
-        type: UPCOMING_AVAILABLE
-    },
-};
 
 //GENRES
 export const GENRES = [
@@ -135,5 +100,3 @@ export const GENRES = [
         "name": "Western"
     }
 ];
-
-export const empty_message = "No movies found";

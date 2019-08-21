@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dimensions, Image, ImageBackground, StyleSheet, Text, View, TouchableHighlight} from 'react-native';
+import {Dimensions, Image, ImageBackground, StyleSheet, Text, TouchableHighlight, View} from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient'
 import Carousel from 'react-native-snap-carousel';
 import FadeIn from 'react-native-fade-in-image';
@@ -15,8 +15,8 @@ export default function Spotlight({data, onPress}) {
 
     const renderItem = ({item, index}) => {
         return (
-            <ImageBackground style={[styles.item]} source={{uri: IMAGE_URL + item.backdrop_path}} >
-                <TouchableHighlight onPress={() => onPress(index)}>
+            <TouchableHighlight onPress={() => onPress(index)}>
+                <ImageBackground style={[styles.item]} source={{uri: IMAGE_URL + item.backdrop_path}}>
                     <LinearGradient colors={overlayColors} style={styles.overlay}>
                         <View style={[{padding: 20, flexDirection: "row"}]}>
                             <FadeIn><Image style={styles.poster} source={{uri: IMAGE_URL + item.poster_path}}/></FadeIn>
@@ -28,8 +28,8 @@ export default function Spotlight({data, onPress}) {
                             </View>
                         </View>
                     </LinearGradient>
-                </TouchableHighlight>
-            </ImageBackground>
+                </ImageBackground>
+            </TouchableHighlight>
         )
     };
 

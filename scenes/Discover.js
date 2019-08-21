@@ -18,8 +18,8 @@ import Featured from '../components/Featured'
 import Movies from "./Movies";
 
 export default function Discover (props) {
-    const {navigation} = props;
     const dispatch = useDispatch();
+    const {navigation} = props;
 
     //1 - DECLARE VARIABLES
     const [error, setError] = useState(null);

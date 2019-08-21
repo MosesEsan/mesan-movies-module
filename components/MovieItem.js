@@ -6,7 +6,7 @@ import moment from "moment";
 
 const MovieItem = ({item, onPress}) => {
     return (
-        <TouchableHighlight onPress={onPress}>
+        <TouchableHighlight onPress={onPress} underlayColor="rgba(0, 0, 0, 0)">
             <View style={styles.item}>
                 <FadeIn style={styles.poster}>
                     <Image style={styles.poster} source={{uri: IMAGE_URL + item.poster_path}}/>

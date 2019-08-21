@@ -9,8 +9,7 @@ import {IMAGE_URL} from "../constants";
 export const windowWidth = Dimensions.get('window').width;
 let overlayColors = ['transparent','rgba(0,0,0,0.5)','rgba(0,0,0,0.6)','rgba(0,0,0,0.8)'];
 
-export default function Featured(props) {
-    const {item, onPress} = props;
+export default function Featured({item, onPress}) {
     return(
         <ImageBackground style={styles.container} source={{uri: IMAGE_URL + item.backdrop_path}}>
             <LinearGradient colors={overlayColors} style={styles.overlay}>
@@ -21,7 +20,7 @@ export default function Featured(props) {
                     </View>
                 </View>
             </LinearGradient>
-            <TouchableHighlight style={styles.videoOverlay} onPress={() => onPress(item)}>
+            <TouchableHighlight style={styles.videoOverlay} onPress={() => onPress(item)} underlayColor="rgba(0, 0, 0, 0)">
                 <Icon name={"play-circle"}
                       type={"font-awesome"}
                       size={60}

@@ -21,7 +21,7 @@ export default function Panel(props) {
 
 export function PanelItem({title, subtext, image, onPress}) {
     return (
-        <TouchableHighlight onPress={onPress}>
+        <TouchableHighlight onPress={onPress} underlayColor="rgba(0, 0, 0, 0)">
             <View style={styles.item}>
                 <FadeIn><Image style={styles.poster} source={{uri: image}}/></FadeIn>
                 <Text style={styles.title} numberOfLines={1}>{title}</Text>

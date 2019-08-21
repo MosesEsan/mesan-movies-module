@@ -25,7 +25,6 @@ export default function Trailers(props) {
     //3 - GET DATA
     const getData = () => {
         if (navigation.state.params.hasOwnProperty("source")){
-            alert("in")
             let source = navigation.getParam("source");
             source = "https://youtu.be/"+source;
             setSource(source);
@@ -36,19 +35,18 @@ export default function Trailers(props) {
             api.getMovieDetails(navigation.getParam("movie_id"))
                 .then((data) => {
                     let videos = data.videos;
-                    let video = null;
+                    let source = null;
 
                     for (let i = 0; i < videos.length; i++){
                         let video = videos[i];
 
                         if (video.site = "YouTube"){
-                            let source = "https://youtu.be/"+video.key;
-                            setSource(source);
+                            source = "https://youtu.be/"+video.key;
                             break;
                         }
                     }
 
-                    if (video) setSource(source);
+                    if (source) setSource(source);
                     else setError("No videos available for this movie.")
 
                 })
