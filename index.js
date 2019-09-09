@@ -1,4 +1,4 @@
-import {createStackNavigator} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 
 import Discover from "./scenes/Discover"
 import Movies from "./scenes/Movies"
